@@ -1,15 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
     namespace = "com.example.assignment"
-    compileSdk {
-        version = release(37) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.assignment"
@@ -51,6 +48,15 @@ dependencies {
     // Kotlin Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
 
+    // Google Maps
+    implementation("com.google.maps.android:maps-compose:4.3.3")
+
+    // Google Play Services Maps
+    implementation("com.google.android.gms:play-services-maps:19.0.0")
+
+    // Extended Material Icons
+    implementation("androidx.compose.material:material-icons-extended:1.6.8")
+
     // Others implementation
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.activity:activity-compose:1.9.0")
@@ -61,6 +67,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("androidx.compose.material:material-icons-core")
+
     // Original Implementation
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
